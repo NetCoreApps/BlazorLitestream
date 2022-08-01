@@ -50,21 +50,9 @@
 <script>
 
 const SIDEBAR = `
-    Home,home,/$
-    Counter,plus,/counter
-    Todos,clipboard,/todomvc
     Bookings CRUD,calendar,/bookings-crud
-    Call Hello,transfer,/hello$
-    Call HelloSecure,shield,/hello-secure
-    Fetch data,list-rich,/fetchdata
-    Admin,lock-locked,/admin
-    Login,account-login,/signin
 `
-const TOP = `
-    0.40 /mo,dollar,/docs/hosting
-    Prerendering,loop-circular,/docs/prerender
-    Deployments,cloud-upload,/docs/deploy
-`
+const TOP = ``
 
 const path = location.pathname
 const NAV = ({ label, cls, icon, route, exact }) => `<li class="nav-item${cls}">
