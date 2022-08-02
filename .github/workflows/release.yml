@@ -1,6 +1,4 @@
 name: Release
-permissions:
-  packages: write
 on:
   # Triggered on new GitHub Release
   release:
@@ -65,7 +63,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CR_PAT }}
 
       # Build and push new docker image, skip for manual redeploy other than 'latest'
       - name: Build and push Docker images
@@ -147,7 +145,7 @@ jobs:
       - name: remote docker-compose up via ssh
         uses: appleboy/ssh-action@v0.1.4
         env:
-          APPTOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APPTOKEN: ${{ secrets.CR_PAT }}
           USERNAME: ${{ secrets.DEPLOY_USERNAME }}
         with:
           host: ${{ secrets.DEPLOY_API }}
